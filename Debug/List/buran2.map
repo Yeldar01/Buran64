@@ -1,0 +1,176 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+glcd_state                                                                        0x06EB      29
+time_zero                                                                         0x0708       4
+clapan_out_monitor                                                                0x070C       1
+boiler_state_str                                                                  0x070D      12
+start_sequence_stage_str                                                          0x0719      22
+boiler_role_str                                                                   0x072F      14
+weather_dep_str                                                                   0x073D       6
+errors_str                                                                        0x0743      20
+boiler                                                                            0x0757      60
+main_page                                                                         0x0793      14
+tick_ms                                                                           0x07A1       4
+DirectVolt                                                                        0x07A5       4
+DirectADC                                                                         0x07A9       2
+eedefault                                                                         0x07AB      12
+nvm_cache                                                                         0x07B7      12
+oneminute_counter (boiler.c)                                                      0x07C3       4
+air_k1                                                                            0x07C7       4
+air_b1                                                                            0x07CB       4
+air_k2                                                                            0x07CF       4
+air_b2                                                                            0x07D3       4
+air_c                                                                             0x07D7       4
+water_k1                                                                          0x07DB       4
+water_b1                                                                          0x07DF       4
+water_k2                                                                          0x07E3       4
+water_b2                                                                          0x07E7       4
+water_c                                                                           0x07EB       4
+data (menu.c)                                                                     0x07EF       2
+prev_index (menu.c)                                                               0x07F1       4
+prev_index_1stline (menu.c)                                                       0x07F5       4
+prev_activePage (menu.c)                                                          0x07F9       2
+pressed (button_control.c)                                                        0x07FB       1
+time_pressed (button_control.c)                                                   0x07FC       4
+time_emitted (button_control.c)                                                   0x0800       4
+main_page_list                                                                    0x0804     203
+buttonCallbacks                                                                   0x08CF      10
+time (widgets.c)                                                                  0x08D9       4
+time (widgets.c)                                                                  0x08DD       4
+br_str (widgets.c)                                                                0x08E1       2
+time (widgets.c)                                                                  0x08E3       4
+drawn (widgets.c)                                                                 0x08E7       1
+time (widgets.c)                                                                  0x08E8       4
+j (widgets.c)                                                                     0x08EC       4
+time (widgets.c)                                                                  0x08F0       4
+drawn (widgets.c)                                                                 0x08F4       1
+time (widgets.c)                                                                  0x08F5       4
+time (widgets.c)                                                                  0x08F9       4
+state (widgets.c)                                                                 0x08FD       1
+st7920_graphics_on (glcd_st7920.lib)                                              0x08FE       1
+st7920_bits8_15 (glcd_st7920.lib)                                                 0x08FF       1
+xt (glcd_st7920.lib)                                                              0x0900       1
+yt (glcd_st7920.lib)                                                              0x0901       1
+_seed (stdlib.lib)                                                                0x0902       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+eeinit_data                                                                       0x0000      12
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+activePage                                                                        R6,R7        2
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+displayInit                                                                       0x00621     13
+PORT_INIT                                                                         0x0062E     30
+timerInit                                                                         0x0064C     25
+uartInit                                                                          0x00665     15
+GetTick_ms                                                                        0x00674      3
+timer0_ovf_isr                                                                    0x00677     68
+timer1_compa_isr                                                                  0x006BB     33
+printBoilerInfo                                                                   0x006DC      1
+main                                                                              0x006DD     35
+turnAllOff                                                                        0x00700     10
+boiler_init                                                                       0x0070A     89
+check_reset_error                                                                 0x00763     25
+check_errors                                                                      0x0077C    192
+boiler_update                                                                     0x0083C    396
+boiler_start                                                                      0x009C8      9
+boiler_stop                                                                       0x009D1      4
+boiler_toggle                                                                     0x009D5      8
+boiler_update_nvm                                                                 0x009DD     71
+boiler_update_pump                                                                0x00A24     89
+ADC_Init                                                                          0x00A7D      4
+GetRef                                                                            0x00A81     37
+adc2voltageApprox                                                                 0x00AA6     52
+SendAirTemp                                                                       0x00ADA    123
+SendWaterTemp                                                                     0x00B55    123
+setActivePage                                                                     0x00BD0     15
+str_length                                                                        0x00BDF     22
+dataAssign                                                                        0x00BF5    101
+renderMenu                                                                        0x00C5A    491
+menuCommand                                                                       0x00E45    165
+incrementEntry                                                                    0x00EEA    133
+decrementEntry                                                                    0x00F6F    135
+emit_command                                                                      0x00FF6     50
+button_update                                                                     0x01028    155
+boiler_toggle_wrap                                                                0x010C3      9
+cmdUp                                                                             0x010CC      2
+cmdDown                                                                           0x010CE      2
+cmdLeft                                                                           0x010D0      2
+cmdRight                                                                          0x010D2      2
+cmdSelect                                                                         0x010D4      4
+menu_buttons_init                                                                 0x010D8     40
+menu_buttons_update                                                               0x01100      4
+clear                                                                             0x01104     18
+drawAirTemp                                                                       0x01116     47
+drawModelName                                                                     0x006EA   2713
+drawPump                                                                          0x01183     74
+drawBurner                                                                        0x011CD     62
+drawFire                                                                          0x0120B     84
+drawError                                                                         0x0125F     72
+drawAntiFreeze                                                                    0x012A7     34
+widgetsUpdate                                                                     0x012C9     31
+st7920_delay_G100                                                                 0x012E8      4
+st7920_wrbus_G100                                                                 0x012EC     10
+st7920_rdbus_G100                                                                 0x012F6      7
+st7920_busy_G100                                                                  0x012FD     10
+st7920_wrdata                                                                     0x01307      7
+st7920_rddata                                                                     0x0130E      4
+st7920_wrcmd                                                                      0x01312      6
+st7920_setxy_G100                                                                 0x01318     18
+glcd_display                                                                      0x0132A     24
+glcd_cleartext                                                                    0x01342     14
+glcd_cleargraphics                                                                0x01350     36
+glcd_clear                                                                        0x01374      3
+glcd_init                                                                         0x01377    128
+st7920_rdbyte_G100                                                                0x013F7     16
+st7920_wrbyte_G100                                                                0x01407     15
+glcd_putpixel                                                                     0x01416     34
+glcd_getpixel                                                                     0x01438     25
+st7920_wrmasked_G100                                                              0x01451     68
+glcd_block                                                                        0x01495    445
+glcd_putcharcg                                                                    0x01652     38
+glcd_clipx                                                                        0x01678     14
+glcd_clipy                                                                        0x01686     17
+glcd_setpixel                                                                     0x01697      8
+glcd_imagesize                                                                    0x0169F     38
+glcd_getcharw_G101                                                                0x016C5    120
+glcd_new_line_G101                                                                0x0173D     19
+glcd_putchar                                                                      0x01750    147
+glcd_putimagef                                                                    0x017E3     41
+glcd_putpixelm_G101                                                               0x0180C     24
+glcd_moveto                                                                       0x01824     15
+glcd_line                                                                         0x01833    249
+glcd_rectround                                                                    0x0192C    120
+glcd_fillrectround                                                                0x019A4    101
+glcd_plot8_G101                                                                   0x01A09    343
+glcd_line2_G101                                                                   0x01B60     45
+glcd_quadrant_G101                                                                0x01B8D     87
+glcd_barrel                                                                       0x01BE4     58
+glcd_floodfill                                                                    0x01C1E    140
+_ftoe_G103                                                                        0x01CAA    200
+_print_G103                                                                       0x01D72    549
+put_glcd_G103                                                                     0x01F97     15
+glcd_printfxy                                                                     0x01FA6     46
+ftoa                                                                              0x01FD4    193
+memset                                                                            0x02095     16
+strcpyf                                                                           0x020A5     13
+strlen                                                                            0x020B2     12
+strlenf                                                                           0x020BE     13
+eeprom_read_block                                                                 0x020CB     25
+eeprom_write_block                                                                0x020E4     28
+ftrunc                                                                            0x02100     49
+floor                                                                             0x02131     19
+log                                                                               0x02144    136
+glcd_getmask                                                                      0x021CC     14
+glcd_mappixcolor1bit                                                              0x021DA     38
+glcd_readmem                                                                      0x02200     31
+glcd_writemem                                                                     0x0221F     34
+glcd_revbits                                                                      0x02241     19

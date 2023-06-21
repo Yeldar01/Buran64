@@ -1,0 +1,173 @@
+;PCODE: $00000000 VOL: 0
+	#ifndef __SLEEP_DEFINED__
+;PCODE: $00000001 VOL: 0
+	#define __SLEEP_DEFINED__
+;PCODE: $00000002 VOL: 0
+	.EQU __se_bit=0x20
+;PCODE: $00000003 VOL: 0
+	.EQU __sm_mask=0x1C
+;PCODE: $00000004 VOL: 0
+	.EQU __sm_powerdown=0x10
+;PCODE: $00000005 VOL: 0
+	.EQU __sm_powersave=0x18
+;PCODE: $00000006 VOL: 0
+	.EQU __sm_standby=0x14
+;PCODE: $00000007 VOL: 0
+	.EQU __sm_ext_standby=0x1C
+;PCODE: $00000008 VOL: 0
+	.EQU __sm_adc_noise_red=0x08
+;PCODE: $00000009 VOL: 0
+	.SET power_ctrl_reg=mcucr
+;PCODE: $0000000A VOL: 0
+	#endif
+;PCODE: $0000000B VOL: 0
+;PCODE: $0000000C VOL: 0
+;extern menuPage_t main_page;
+;void incrementEntry(entry_t* e);
+;void decrementEntry(entry_t* e);
+;void boiler_toggle_wrap(entry_t* e){
+; 0006 0014 void boiler_toggle_wrap(entry_t* e){
+
+	.CSEG
+;PCODE: $0000000D VOL: 0
+;PCODE: $0000000E VOL: 0
+; 0006 0015 (void)e;
+;PCODE: $0000000F VOL: 0
+;PCODE: $00000010 VOL: 0
+;PCODE: $00000011 VOL: 0
+;	*e -> R16,R17
+;PCODE: $00000012 VOL: 0
+; 0006 0016 boiler_toggle();
+;PCODE: $00000013 VOL: 0
+; 0006 0017 }
+;PCODE: $00000014 VOL: 0
+;PCODE: $00000015 VOL: 0
+;PCODE: $00000016 VOL: 0
+;volatile entry_t main_page_list[] = {
+;{ .sel_callback = boiler_toggle_wrap, .left_callback = 0,               .right_c ...
+;{ .sel_callback = 0,                  .left_callback = decrementEntry,  .right_c ...
+;{ .sel_callback = 0,                  .left_callback = decrementEntry,  .right_c ...
+;{ .sel_callback = 0,                  .left_callback = decrementEntry,  .right_c ...
+;{ .sel_callback = 0,                  .left_callback = decrementEntry,  .right_c ...
+;{ .sel_callback = 0,                  .left_callback = decrementEntry,  .right_c ...
+;{ .sel_callback = 0,                  .left_callback = decrementEntry,  .right_c ...
+;};
+
+	.DSEG
+_0xC0003:
+	.BYTE 0x4C
+;menuPage_t main_page = {
+;main_page_list,
+;NUM_MAIN_PAGE,
+;0,
+;};
+;button_callbacks_t buttonCallbacks;
+;void cmdUp(void){
+; 0006 002D void cmdUp(void){
+
+	.CSEG
+;PCODE: $00000017 VOL: 0
+;PCODE: $00000018 VOL: 0
+; 0006 002E menuCommand(up_e);
+;PCODE: $00000019 VOL: 0
+;PCODE: $0000001A VOL: 0
+; 0006 002F }
+;PCODE: $0000001B VOL: 0
+;PCODE: $0000001C VOL: 0
+;void cmdDown(void){
+; 0006 0031 void cmdDown(void){
+;PCODE: $0000001D VOL: 0
+;PCODE: $0000001E VOL: 0
+; 0006 0032 menuCommand(down_e);
+;PCODE: $0000001F VOL: 0
+;PCODE: $00000020 VOL: 0
+; 0006 0033 }
+;PCODE: $00000021 VOL: 0
+;PCODE: $00000022 VOL: 0
+;void cmdLeft(void){
+; 0006 0035 void cmdLeft(void){
+;PCODE: $00000023 VOL: 0
+;PCODE: $00000024 VOL: 0
+; 0006 0036 menuCommand(right_e);
+;PCODE: $00000025 VOL: 0
+;PCODE: $00000026 VOL: 0
+; 0006 0037 }
+;PCODE: $00000027 VOL: 0
+;PCODE: $00000028 VOL: 0
+;void cmdRight(void){
+; 0006 0039 void cmdRight(void){
+;PCODE: $00000029 VOL: 0
+;PCODE: $0000002A VOL: 0
+; 0006 003A menuCommand(left_e);
+;PCODE: $0000002B VOL: 0
+;PCODE: $0000002C VOL: 0
+; 0006 003B }
+;PCODE: $0000002D VOL: 0
+;PCODE: $0000002E VOL: 0
+;void cmdSelect(void){
+; 0006 003D void cmdSelect(void){
+;PCODE: $0000002F VOL: 0
+;PCODE: $00000030 VOL: 0
+; 0006 003E menuCommand(enter_e);
+;PCODE: $00000031 VOL: 0
+;PCODE: $00000032 VOL: 0
+; 0006 003F }
+;PCODE: $00000033 VOL: 0
+;PCODE: $00000034 VOL: 0
+;void menu_buttons_init(void){
+; 0006 0044 void menu_buttons_init(void){
+;PCODE: $00000035 VOL: 0
+;PCODE: $00000036 VOL: 0
+; 0006 0045 PRINT(">>>menu_buttons_init()\r\n");
+; 0006 0046 
+; 0006 0047 PRINT("str = %s\r\n", main_page_list[2].str_storage[0]);
+; 0006 0048 PRINT("dir = %s\r\n", weather_dep_str[0]);
+; 0006 0049 PRINT("data = %d\r\n", *(main_page_list[2].data.u8));
+; 0006 004A 
+; 0006 004B //main_page_list[2].data.str =  weather_dep_str[boiler.weather];
+; 0006 004C PRINT("weather_dep_str[boiler.weather] = %s\r\n", weather_dep_str[boiler.weather ...
+; 0006 004D PRINT("main_page_list[2].data.str  = %s\r\n", main_page_list[2].data.str );
+; 0006 004E buttonCallbacks.left = cmdLeft;
+;PCODE: $00000037 VOL: 0
+;PCODE: $00000038 VOL: 0
+; 0006 004F buttonCallbacks.right = cmdRight;
+;PCODE: $00000039 VOL: 0
+;PCODE: $0000003A VOL: 0
+;PCODE: $0000003B VOL: 0
+; 0006 0050 buttonCallbacks.up = cmdUp;
+;PCODE: $0000003C VOL: 0
+;PCODE: $0000003D VOL: 0
+;PCODE: $0000003E VOL: 0
+; 0006 0051 buttonCallbacks.down = cmdDown;
+;PCODE: $0000003F VOL: 0
+;PCODE: $00000040 VOL: 0
+;PCODE: $00000041 VOL: 0
+; 0006 0052 buttonCallbacks.select = cmdSelect;
+;PCODE: $00000042 VOL: 0
+;PCODE: $00000043 VOL: 0
+;PCODE: $00000044 VOL: 0
+; 0006 0053 setActivePage(&main_page, void_e);
+;PCODE: $00000045 VOL: 0
+;PCODE: $00000046 VOL: 0
+;PCODE: $00000047 VOL: 0
+;PCODE: $00000048 VOL: 0
+; 0006 0054 renderMenu();
+;PCODE: $00000049 VOL: 0
+; 0006 0055 
+; 0006 0056 PRINT("str = %s\r\n", main_page_list[2].str_storage[0]);
+; 0006 0057 PRINT("dir = %s\r\n", weather_dep_str[0]);
+; 0006 0058 PRINT("data = %d\r\n", *(main_page_list[2].data.u8));
+; 0006 0059 PRINT("<<<menu_buttons_init()\r\n");
+; 0006 005A }
+;PCODE: $0000004A VOL: 0
+;PCODE: $0000004B VOL: 0
+;void menu_buttons_update(void){
+; 0006 005C void menu_buttons_update(void){
+;PCODE: $0000004C VOL: 0
+;PCODE: $0000004D VOL: 0
+; 0006 005D button_update(&buttonCallbacks);
+;PCODE: $0000004E VOL: 0
+;PCODE: $0000004F VOL: 0
+; 0006 005E }
+;PCODE: $00000050 VOL: 0
+;PCODE: $00000051 VOL: 0
